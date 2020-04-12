@@ -23,7 +23,7 @@ pipeline {
     stage ('deploy') {
         steps {
           echo "deploy step"
-            sleep 10
+            build 'project16'
         
         }
       }
