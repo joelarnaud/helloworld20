@@ -23,7 +23,7 @@ pipeline {
     stage ('deploy') {
         steps {
           echo "deploy step"
-            build 'project16'
+            deploy adapters: [tomcat8(credentialsId: 'tomcatID', path: '', url: '99.79.65.66:8443')], contextPath: null, war: '**/.*war'
         
         }
       }
