@@ -13,17 +13,11 @@ pipeline {
         
         }
        }
-    stage ('test') {
-        steps {
-          echo "test step"
-            sh 'mvn test'
-        
-        }
-      }
+   
     stage ('deploy') {
         steps {
           echo "deploy step"
-            deploy adapters: [tomcat8(credentialsId: 'tomcatID', path: '', url: 'https://99.79.65.66:8080')], contextPath: null, war: '**/.*war'
+            deploy 'adapters: [tomcat8(credentialsId: 'tomcatID', path: '', url: 'https://99.79.65.66:8080')], contextPath: null, war: '**/.*war''
         }
       }
     }
