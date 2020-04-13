@@ -21,7 +21,7 @@ pipeline {
         stage('deploy'){
         steps {
         echo "deploy step"
-        sh 'mvn deploy'
+        deploy adapters: [tomcat8(credentialsId: 'tomcatID', path: '', url: 'http://35.183.101.53:8000')], contextPath: null, war: '**/*.war'
         }
       }
   }
